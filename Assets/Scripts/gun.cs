@@ -11,7 +11,7 @@ public class gun : MonoBehaviour
     public LineRenderer lineRenderer;
 
     private bool shooted = false;
-
+    
 
     void Update()
     {
@@ -29,8 +29,8 @@ public class gun : MonoBehaviour
 
     public void OnShoot(InputAction.CallbackContext ctx)
     {
-        shooted = ctx.ReadValue<bool>();
-        shooted = ctx.action.enabled;
+        //shooted = ctx.ReadValue<bool>();
+        shooted = ctx.action.triggered;
     }
 
     void Shoot()
@@ -50,7 +50,15 @@ public class gun : MonoBehaviour
             lineRenderer.SetPosition(1, hit.point);
 
             lineRenderer.SetPosition(0, transform.position);
-            lineRenderer.SetPosition(1, transform.position + transform.forward * 100);
+            lineRenderer.SetPosition(1, transform.position + transform.forward * range);
+        }
+        else
+        {
+            lineRenderer.SetPosition(0, transform.position);
+            lineRenderer.SetPosition(1, hit.point);
+
+            lineRenderer.SetPosition(0, transform.position);
+            lineRenderer.SetPosition(1, transform.position + transform.forward * range);
         }
     }
 }

@@ -22,7 +22,7 @@ public class gun : MonoBehaviour
         if (shooted)
         {
             Shoot();
-            Debug.Log("Crepe");
+            //Debug.Log("Shoot");
         }
     }
 

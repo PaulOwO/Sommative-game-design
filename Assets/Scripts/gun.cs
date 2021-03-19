@@ -8,6 +8,7 @@ public class gun : MonoBehaviour
 {
     public float range = 100f;
     public float damage = 10f;
+    public LineRenderer lineRenderer;
 
     private bool shooted = false;
 
@@ -44,6 +45,12 @@ public class gun : MonoBehaviour
             {
                 target.TakeDamage(damage);
             }
+
+            lineRenderer.SetPosition(0, transform.position);
+            lineRenderer.SetPosition(1, hit.point);
+
+            lineRenderer.SetPosition(0, transform.position);
+            lineRenderer.SetPosition(1, transform.position + transform.forward * 100);
         }
     }
 }

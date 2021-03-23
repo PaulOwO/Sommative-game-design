@@ -9,21 +9,24 @@ public class gun : MonoBehaviour
     public float range = 100f;
     public float damage = 10f;
     public LineRenderer lineRenderer;
-
     private bool shooted = false;
+    public bool shootAvailable = true;
     
 
     void Update()
     {
-     /*if (Input.GetKeyDown(KeyCode.Space))
+        /*if (Input.GetKeyDown(KeyCode.Space))
+           {
+               Shoot();
+           }*/
+        if (shootAvailable)
         {
-            Shoot();
-        }*/
-
-        if (shooted)
-        {
-            Shoot();
-            //Debug.Log("Shoot");
+            if (shooted)
+            {
+                Shoot();
+                StartCoroutine(FireRate());
+                //Debug.Log("Shoot");
+            }
         }
     }
 
@@ -60,5 +63,21 @@ public class gun : MonoBehaviour
             lineRenderer.SetPosition(0, transform.position);
             lineRenderer.SetPosition(1, transform.position + transform.forward * range);
         }
+
+        StartCoroutine(LineTime());
+    }
+
+    IEnumerator FireRate()
+    {
+        shootAvailable = false;
+        yield return new WaitForSeconds(3.00f);
+        shootAvailable = true;
+    }
+
+    IEnumerator LineTime()
+    {
+        lineRenderer.enabled = true;
+        yield return new WaitForSeconds(0.25f);
+        lineRenderer.enabled = false;
     }
 }

@@ -45,6 +45,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   range: 100
   damage: 10
+  lineRenderer: {fileID: 0}
+  shootAvailable: 1
 --- !u!1 &1277449694148921305
 GameObject:
   m_ObjectHideFlags: 0
@@ -382,6 +384,7 @@ GameObject:
   - component: {fileID: 2469145385622117708}
   - component: {fileID: 3257992896607483790}
   - component: {fileID: 7111164929621137725}
+  - component: {fileID: 6164483127709954957}
   m_Layer: 0
   m_Name: Player1
   m_TagString: Untagged
@@ -482,6 +485,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 7d4fd4d7-5904-47a9-813e-75683e15685f
     m_ActionName: Gameplay/Shoot[/Keyboard/f]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2469145385622117708}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: OnReset
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: fd6b6059-ca8e-4506-b610-4c0f1121e82f
+    m_ActionName: Gameplay/Reset[/Keyboard/r]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Gameplay
@@ -526,6 +545,22 @@ CapsuleCollider:
   m_Height: 1.5
   m_Direction: 1
   m_Center: {x: 0.15, y: 0.24, z: -0.18}
+--- !u!54 &6164483127709954957
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1277449696127882445}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 116
+  m_CollisionDetection: 0
 --- !u!1001 &6434222352382411850
 PrefabInstance:
   m_ObjectHideFlags: 0

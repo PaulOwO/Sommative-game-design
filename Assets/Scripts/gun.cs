@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+
 public class gun : MonoBehaviour
 {
     public float range = 100f;
@@ -12,7 +13,6 @@ public class gun : MonoBehaviour
     private bool shooted = false;
     public bool shootAvailable = true;
     
-
     void Update()
     {
         /*if (Input.GetKeyDown(KeyCode.Space))
@@ -28,8 +28,9 @@ public class gun : MonoBehaviour
                 //Debug.Log("Shoot");
             }
         }
+        
     }
-
+    
     public void OnShoot(InputAction.CallbackContext ctx)
     {
         //shooted = ctx.ReadValue<bool>();

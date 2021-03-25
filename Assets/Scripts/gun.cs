@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
+using InControl;
 
 
 public class gun : MonoBehaviour
@@ -10,7 +10,6 @@ public class gun : MonoBehaviour
     public float range = 100f;
     public float damage = 10f;
     public LineRenderer lineRenderer;
-    private bool shooted = false;
     public bool shootAvailable = true;
     
     void Update()
@@ -21,7 +20,7 @@ public class gun : MonoBehaviour
            }*/
         if (shootAvailable)
         {
-            if (shooted)
+            if (InputManager.ActiveDevice.RightBumper.IsPressed)
             {
                 Shoot();
                 StartCoroutine(FireRate());
@@ -31,11 +30,6 @@ public class gun : MonoBehaviour
         
     }
     
-    public void OnShoot(InputAction.CallbackContext ctx)
-    {
-        //shooted = ctx.ReadValue<bool>();
-        shooted = ctx.action.triggered;
-    }
 
     void Shoot()
     {

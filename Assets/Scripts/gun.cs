@@ -11,16 +11,14 @@ public class gun : MonoBehaviour
     public float damage = 10f;
     public LineRenderer lineRenderer;
     public bool shootAvailable = true;
+    [SerializeField] private PlayerController playercontroller;
     
     void Update()
     {
-        /*if (Input.GetKeyDown(KeyCode.Space))
-           {
-               Shoot();
-           }*/
         if (shootAvailable)
         {
-            if (InputManager.ActiveDevice.RightBumper.IsPressed)
+            var device = InputManager.Devices[playercontroller.index];
+            if (device.RightBumper.IsPressed)
             {
                 Shoot();
                 StartCoroutine(FireRate());

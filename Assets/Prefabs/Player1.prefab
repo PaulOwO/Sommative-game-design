@@ -47,6 +47,7 @@ MonoBehaviour:
   damage: 10
   lineRenderer: {fileID: 0}
   shootAvailable: 1
+  playercontroller: {fileID: 2469145385622117708}
 --- !u!1 &1277449694148921305
 GameObject:
   m_ObjectHideFlags: 0
@@ -518,6 +519,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb7da4c9735cf2445b9accd4e461decc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  index: 0
+  range: 100
+  damage: 10
+  lineRenderer: {fileID: 0}
+  shootAvailable: 1
 --- !u!114 &3257992896607483790
 MonoBehaviour:
   m_ObjectHideFlags: 0

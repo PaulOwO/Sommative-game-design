@@ -23,6 +23,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 13842109486577637, guid: 776b85a7edc60c144833bc8d06eb66bb, type: 3}
+      propertyPath: _index
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 13842109486577637, guid: 776b85a7edc60c144833bc8d06eb66bb, type: 3}
+      propertyPath: indexshot
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 13842109486577637, guid: 776b85a7edc60c144833bc8d06eb66bb, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1277449694739709918, guid: 776b85a7edc60c144833bc8d06eb66bb, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -74,6 +86,14 @@ PrefabInstance:
     - target: {fileID: 1277449696127882445, guid: 776b85a7edc60c144833bc8d06eb66bb, type: 3}
       propertyPath: m_Name
       value: Player2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2469145385622117708, guid: 776b85a7edc60c144833bc8d06eb66bb, type: 3}
+      propertyPath: index
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2469145385622117708, guid: 776b85a7edc60c144833bc8d06eb66bb, type: 3}
+      propertyPath: _index
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5202835257371043036, guid: 776b85a7edc60c144833bc8d06eb66bb, type: 3}
       propertyPath: m_Actions

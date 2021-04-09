@@ -9,24 +9,28 @@ public class PlayerController : MonoBehaviour
 {
    private float speedRotation = 10f;
    private float speed = 5f;
-   //private Vector2 _movementInput;
    private Vector2 _rotationInput;
-   private bool reset = false;
-   
+   [SerializeField] public int index = 0;
 
+
+   private void Awake()
+   {
+      InputManager.OnDeviceAttached += inputDevice => Debug.Log("Attached: " + inputDevice.Name);
+      InputManager.OnDeviceDetached += inputDevice => Debug.Log("Detached: " + inputDevice.Name);
+      InputManager.OnActiveDeviceChanged += inputDevice => Debug.Log("Switched: " + inputDevice.Name);
+   }
 
    private void Update()
    {
-      transform.Translate(new Vector3(InputManager.ActiveDevice.LeftStickX * speed * Time.deltaTime, 0, 0), Space.World);
-      transform.Translate(new Vector3(0, 0, InputManager.ActiveDevice.LeftStickY * speed * Time.deltaTime), Space.World);
+      var device = InputManager.Devices[index];
+      transform.Translate(new Vector3(device.LeftStickX * speed * Time.deltaTime, 0, 0), Space.World);
+      transform.Translate(new Vector3(0, 0, device.LeftStickY * speed * Time.deltaTime), Space.World);
 
-      if (InputManager.ActiveDevice.RightStick.Sensitivity > 0.5f)
       {
-         _rotationInput = InputManager.ActiveDevice.RightStick.Value;
-         transform.Rotate(new Vector3(0, _rotationInput.magnitude, 0));
+         SelfRotation();
       }
 
-         if (InputManager.ActiveDevice.Command.IsPressed)
+      if (device.Command.IsPressed)
       {
          SceneManager.LoadScene("SampleScene");
       }
@@ -40,7 +44,7 @@ public class PlayerController : MonoBehaviour
    //public void OnMove(InputAction.CallbackContext ctx) => _movementInput = ctx.ReadValue<Vector2>();
 
    //public void OnRotate(InputAction.CallbackContext ctx) => _rotationInput = ctx.ReadValue<Vector2>();
-   
+
    /*public void OnReset(InputAction.CallbackContext ctx)
    {
       reset = ctx.action.triggered;
@@ -50,6 +54,16 @@ public class PlayerController : MonoBehaviour
    {
       transform.Translate(new Vector3(1, 0, 0) * speed * Time.deltaTime, Space.World);
    }
-   
-   
+
+   private void SelfRotation()
+   {
+      var device = InputManager.Devices[index];
+      var dir = device.RightStick.Value;
+
+      if (dir.magnitude > 0.1f)
+      {
+         transform.rotation = Quaternion.Euler(new Vector3(0, -Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg - 90.0f, 0));
+      }
+   }
+
 }

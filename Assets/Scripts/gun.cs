@@ -45,7 +45,7 @@ public class gun : MonoBehaviour
 
             if (hit.rigidbody != null)
             {
-                hit.rigidbody.AddForce(-hit.normal * impactForce);
+                hit.rigidbody.AddForce(-hit.normal * impactForce, ForceMode.Impulse);
             }
 
             lineRenderer.SetPosition(0, transform.position);

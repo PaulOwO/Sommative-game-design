@@ -9,6 +9,7 @@ public class gun : MonoBehaviour
 {
     public float range = 100f;
     public float damage = 10f;
+    public float impactForce = 30f;
     public LineRenderer lineRenderer;
     public bool shootAvailable = true;
     [SerializeField] private PlayerController playercontroller;
@@ -39,7 +40,12 @@ public class gun : MonoBehaviour
             Target target = hit.transform.GetComponent<Target>();
             if (target != null)
             {
-                target.TakeDamage(damage);
+               // target.TakeDamage(damage);
+            }
+
+            if (hit.rigidbody != null)
+            {
+                hit.rigidbody.AddForce(-hit.normal * impactForce);
             }
 
             lineRenderer.SetPosition(0, transform.position);

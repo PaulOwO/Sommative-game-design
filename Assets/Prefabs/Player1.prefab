@@ -49,7 +49,14 @@ MonoBehaviour:
   lineRenderer: {fileID: 0}
   shootAvailable: 1
   isBumped: 0
+  rangeL: 100
+  damageL: 10
+  impactForceL: 30
+  lineRenderer: {fileID: 0}
+  shootLAvailable: 1
+  bulletPrefab: {fileID: 4624689472579623237, guid: 673c0031fd37cf345a6d98519daecdba, type: 3}
   playercontroller: {fileID: 2469145385622117708}
+  shootBAvailable: 0
 --- !u!1 &1277449694148921305
 GameObject:
   m_ObjectHideFlags: 0

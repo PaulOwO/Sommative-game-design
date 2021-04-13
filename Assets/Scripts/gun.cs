@@ -12,6 +12,7 @@ public class gun : MonoBehaviour
     public float impactForce = 30f;
     public LineRenderer lineRenderer;
     public bool shootAvailable = true;
+    public bool isBumped;
     [SerializeField] private PlayerController playercontroller;
     
     void Update()
@@ -40,7 +41,7 @@ public class gun : MonoBehaviour
             Target target = hit.transform.GetComponent<Target>();
             if (target != null)
             {
-               // target.TakeDamage(damage);
+                StartCoroutine(BumpKill());
             }
 
             if (hit.rigidbody != null)
@@ -79,4 +80,13 @@ public class gun : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         lineRenderer.enabled = false;
     }
+
+    IEnumerator BumpKill()
+    {
+        isBumped = true;
+        Debug.Log("IsBumped");
+        yield return new WaitForSeconds(2f);
+        isBumped = false;
+    }
+    
 }

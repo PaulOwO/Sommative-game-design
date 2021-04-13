@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
    private float speed = 5f;
    private Vector2 _rotationInput;
    [SerializeField] public int index = 0;
+   
 
 
    private void Awake()
@@ -66,4 +67,5 @@ public class PlayerController : MonoBehaviour
       }
    }
 
+   
 }

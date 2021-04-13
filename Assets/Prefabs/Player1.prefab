@@ -45,8 +45,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   range: 100
   damage: 10
+  impactForce: 30
   lineRenderer: {fileID: 0}
   shootAvailable: 1
+  isBumped: 0
   playercontroller: {fileID: 2469145385622117708}
 --- !u!1 &1277449694148921305
 GameObject:
@@ -520,10 +522,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   index: 0
-  range: 100
-  damage: 10
-  lineRenderer: {fileID: 0}
-  shootAvailable: 1
+  gun: {fileID: 13842109486577637}
 --- !u!114 &3257992896607483790
 MonoBehaviour:
   m_ObjectHideFlags: 0

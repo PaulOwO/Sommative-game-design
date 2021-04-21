@@ -17,6 +17,7 @@ public class gun : MonoBehaviour
     public bool shootBAvailable = true;
     public GameObject bulletPrefab;
     [SerializeField] private PlayerController playercontroller;
+    private float bulletSpeed = 20f;
 
     
     
@@ -53,12 +54,13 @@ public class gun : MonoBehaviour
     {
         GameObject bulletInstance = Instantiate(bulletPrefab);
         bulletInstance.transform.position = transform.position;
-        bulletInstance.transform.position += transform.forward;
+        //bulletInstance.transform.position += transform.forward;
         //Rigidbody body_ = bulletInstance.GetComponent<Rigidbody>();
         //body_.AddForce(impactForceL, ForceMode.Impulse);
         //Rigidbody bulletInstance = GetComponent<Rigidbody>();
         Rigidbody body = bulletInstance.GetComponent<Rigidbody>();
-        body.AddForce(0f, 0f, 1f, ForceMode.Impulse);
+        body.AddForce(transform.forward * bulletSpeed, ForceMode.Impulse);
+        //0f, 0f, 1f,
     }
     
 

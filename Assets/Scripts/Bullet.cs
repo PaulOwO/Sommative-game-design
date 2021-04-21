@@ -5,16 +5,17 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    
-  
-    private const float bulletSpeed = 0.1f;
-    [SerializeField] private GameObject firePoint;
+    [SerializeField] private gun gun;
 
-
-
-    void Update()
+    void OnCollisionEnter(Collision collision)
     {
-        //transform.position += transform.forward * bulletSpeed * Time.deltaTime;
-        transform.position += firePoint.transform.forward * bulletSpeed;
+        Debug.Log("hit");
+        Destroy(gameObject);
+        //gun.StartCoroutine(BumpKill());
     }
+
+
+
+
+   
 }

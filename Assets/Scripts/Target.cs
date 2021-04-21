@@ -5,6 +5,8 @@ public class Target : MonoBehaviour
 {
     public float health = 50f;
     [SerializeField] private gun gun;
+    [SerializeField] private Bullet bullet;
+
 
     /*public void TakeDamage (float amount)
     {
@@ -26,7 +28,27 @@ public class Target : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+       if ((bullet.isBumpedB) && (other.gameObject.layer == LayerMask.NameToLayer("Killingzone")))
+        {
+            Destroy(gameObject);
+        }
     }
-    
+
+    private void OnTriggerStay(Collider other)
+    {
+        if ((gun.isBumped) && (other.gameObject.layer == LayerMask.NameToLayer("Killingzone")))
+        {
+            Destroy(gameObject);
+        }
+
+        if ((bullet.isBumpedB) && (other.gameObject.layer == LayerMask.NameToLayer("Killingzone")))
+        {
+            Destroy(gameObject);
+        }
+    }
+
+
+
 
 }

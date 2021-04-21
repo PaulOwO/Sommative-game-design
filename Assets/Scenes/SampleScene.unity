@@ -324,10 +324,18 @@ PrefabInstance:
       propertyPath: gun
       value: 
       objectReference: {fileID: 1666752024}
+    - target: {fileID: 5363183271445844171, guid: 31b131be7860d3f43ae552acccec83a7, type: 3}
+      propertyPath: bullet
+      value: 
+      objectReference: {fileID: 7081995820506254008, guid: 673c0031fd37cf345a6d98519daecdba, type: 3}
     - target: {fileID: 7451839801947558048, guid: 31b131be7860d3f43ae552acccec83a7, type: 3}
       propertyPath: lineRenderer
       value: 
       objectReference: {fileID: 1499474900}
+    - target: {fileID: 7451839801947558048, guid: 31b131be7860d3f43ae552acccec83a7, type: 3}
+      propertyPath: shootBAvailable
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8566132608037172104, guid: 31b131be7860d3f43ae552acccec83a7, type: 3}
       propertyPath: m_Name
       value: Player2
@@ -338,7 +346,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8566132608037172111, guid: 31b131be7860d3f43ae552acccec83a7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.1096424
+      value: -13.31
       objectReference: {fileID: 0}
     - target: {fileID: 8566132608037172111, guid: 31b131be7860d3f43ae552acccec83a7, type: 3}
       propertyPath: m_LocalPosition.y
@@ -346,7 +354,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8566132608037172111, guid: 31b131be7860d3f43ae552acccec83a7, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.4551868
+      value: -0.47
       objectReference: {fileID: 0}
     - target: {fileID: 8566132608037172111, guid: 31b131be7860d3f43ae552acccec83a7, type: 3}
       propertyPath: m_LocalRotation.w
@@ -453,6 +461,10 @@ PrefabInstance:
       propertyPath: gun
       value: 
       objectReference: {fileID: 857239754}
+    - target: {fileID: 3257992896607483790, guid: 776b85a7edc60c144833bc8d06eb66bb, type: 3}
+      propertyPath: bullet
+      value: 
+      objectReference: {fileID: 7081995820506254008, guid: 673c0031fd37cf345a6d98519daecdba, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 776b85a7edc60c144833bc8d06eb66bb, type: 3}
 --- !u!1 &446115985
@@ -512,7 +524,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
+  m_FirstSelected: {fileID: 128360567}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
 --- !u!4 &446115988

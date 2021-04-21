@@ -17,7 +17,7 @@ public class gun : MonoBehaviour
     public bool shootBAvailable = true;
     public GameObject bulletPrefab;
     [SerializeField] private PlayerController playercontroller;
-    private float bulletSpeed = 20f;
+    private float bulletSpeed = 10f;
 
     
     
@@ -110,7 +110,7 @@ public class gun : MonoBehaviour
     IEnumerator FireRateB()
     {
         shootBAvailable = false;
-        yield return new WaitForSeconds(1.00f);
+        yield return new WaitForSeconds(0.25f);
         shootBAvailable = true;
     }
 

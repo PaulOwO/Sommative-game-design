@@ -22,7 +22,4 @@ public class Bullet : MonoBehaviour
         yield return new WaitForSeconds(2f);
         isBumpedB = false;
     }
-
-
-
 }

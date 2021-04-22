@@ -9,11 +9,13 @@ public class PauseMenu : MonoBehaviour
     private bool GameIsPaused = false; 
 
     [SerializeField] GameObject PauseMenuUI;
+    [SerializeField] private PlayerController playercontroller;
 
     // Update is called once per frame
     void Update()
     {
-        if (InputManager.ActiveDevice.Action3.WasPressed)
+        var device = InputManager.Devices[playercontroller.index];
+        if (device.Command.WasPressed)
         {
             if (GameIsPaused)
             {

@@ -39,7 +39,7 @@ public class gun : MonoBehaviour
         {
             
             var device = InputManager.Devices[playercontroller.index];
-            if (device.LeftBumper.IsPressed)
+            if (device.RightTrigger.IsPressed)
             {
                 ShootB();
                 StartCoroutine(FireRateB());

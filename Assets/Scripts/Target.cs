@@ -1,11 +1,14 @@
 ﻿
+using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Target : MonoBehaviour
 {
     public float health = 50f;
     [SerializeField] private gun gun;
     [SerializeField] private Bullet bullet;
+    [SerializeField] private ArenaManager arenamanager;
 
 
     /*public void TakeDamage (float amount)
@@ -21,6 +24,12 @@ public class Target : MonoBehaviour
     {
         Destroy(gameObject);
     }*/
+    
+    IEnumerator PlayerDeath()
+    {
+        Destroy(gameObject);
+        yield return new WaitForSeconds(5f);
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -39,12 +48,14 @@ public class Target : MonoBehaviour
     {
         if ((gun.isBumped) && (other.gameObject.layer == LayerMask.NameToLayer("Killingzone")))
         {
-            Destroy(gameObject);
+            StartCoroutine(PlayerDeath());
+            SceneManager.LoadScene("SampleScene");
         }
 
         if ((bullet.isBumpedB) && (other.gameObject.layer == LayerMask.NameToLayer("Killingzone")))
         {
-            Destroy(gameObject);
+            StartCoroutine(PlayerDeath());
+            SceneManager.LoadScene("SampleScene");
         }
     }
 

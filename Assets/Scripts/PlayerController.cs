@@ -30,11 +30,10 @@ public class PlayerController : MonoBehaviour
       {
          SelfRotation();
       }
-
-      if (device.Command.IsPressed)
+/*if (device.Command.IsPressed)
       {
          SceneManager.LoadScene("SampleScene");
-      }
+      }*/
    }
 
    /*private void FixedUpdate()

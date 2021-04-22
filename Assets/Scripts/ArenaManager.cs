@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.Experimental;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ArenaManager : MonoBehaviour
 {
@@ -10,6 +11,12 @@ public class ArenaManager : MonoBehaviour
     private void Update()
     {
         StartCoroutine(ExecuteAfterTime(1));
+    }
+    
+    public IEnumerator PlayerDeath()
+    {
+        Destroy(gameObject);
+        yield return new WaitForSeconds(5f);
     }
 
     IEnumerator ExecuteAfterTime(float time)

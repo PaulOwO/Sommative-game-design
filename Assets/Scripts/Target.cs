@@ -9,6 +9,7 @@ public class Target : MonoBehaviour
     [SerializeField] private gun gun;
     [SerializeField] private Bullet bullet;
     [SerializeField] private ArenaManager arenamanager;
+    [SerializeField] AudioSource deathSound;
 
 
     /*public void TakeDamage (float amount)
@@ -24,7 +25,7 @@ public class Target : MonoBehaviour
     {
         Destroy(gameObject);
     }*/
-    
+
     IEnumerator PlayerDeath()
     {
         Destroy(gameObject);
@@ -35,12 +36,12 @@ public class Target : MonoBehaviour
     {
         if ((gun.isBumped) && (other.gameObject.layer == LayerMask.NameToLayer("Killingzone")))
         {
-            Destroy(gameObject);
+            Death();
         }
 
        if ((bullet.isBumpedB) && (other.gameObject.layer == LayerMask.NameToLayer("Killingzone")))
         {
-            Destroy(gameObject);
+            Death();
         }
     }
 
@@ -48,15 +49,23 @@ public class Target : MonoBehaviour
     {
         if ((gun.isBumped) && (other.gameObject.layer == LayerMask.NameToLayer("Killingzone")))
         {
+            Death(); 
             StartCoroutine(PlayerDeath());
             SceneManager.LoadScene("SampleScene");
         }
 
         if ((bullet.isBumpedB) && (other.gameObject.layer == LayerMask.NameToLayer("Killingzone")))
         {
+            Death();
             StartCoroutine(PlayerDeath());
             SceneManager.LoadScene("SampleScene");
         }
+    }
+
+    void Death()
+    {
+        Destroy(gameObject);
+        deathSound.Play();
     }
 
 

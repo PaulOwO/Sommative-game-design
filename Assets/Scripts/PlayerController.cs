@@ -23,6 +23,11 @@ public class PlayerController : MonoBehaviour
 
    private void Update()
    {
+      if (InputManager.Devices.Count <= index)
+      {
+          return;
+      }
+
       var device = InputManager.Devices[index];
       transform.Translate(new Vector3(device.LeftStickX * speed * Time.deltaTime, 0, 0), Space.World);
       transform.Translate(new Vector3(0, 0, device.LeftStickY * speed * Time.deltaTime), Space.World);

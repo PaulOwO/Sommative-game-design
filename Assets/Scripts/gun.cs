@@ -16,14 +16,22 @@ public class gun : MonoBehaviour
     public bool shootLAvailable = true;
     public bool shootBAvailable = true;
     public GameObject bulletPrefab;
+    [SerializeField] AudioSource lazerAudio;
+    [SerializeField] AudioSource shootAudio;
     [SerializeField] private PlayerController playercontroller;
     private float bulletSpeed = 10f;
+    public Animator camera;
 
     
     
 
     void Update()
     {
+        if (InputManager.Devices.Count <= playercontroller.index)
+        {
+            return;
+        }
+
         if (shootLAvailable)
         {
             var device = InputManager.Devices[playercontroller.index];
@@ -52,6 +60,7 @@ public class gun : MonoBehaviour
 
     void ShootB()
     {
+        shootAudio.Play();
         GameObject bulletInstance = Instantiate(bulletPrefab);
         bulletInstance.transform.position = transform.position;
         //bulletInstance.transform.position += transform.forward;
@@ -66,6 +75,8 @@ public class gun : MonoBehaviour
 
     void ShootL()
     {
+        lazerAudio.Play();
+        camera.Play("Shake");
         RaycastHit hit;
         if (Physics.Raycast(transform.position, transform.forward, out hit, rangeL))
         {

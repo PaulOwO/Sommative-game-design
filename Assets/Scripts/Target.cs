@@ -25,12 +25,7 @@ public class Target : MonoBehaviour
     {
         Destroy(gameObject);
     }*/
-
-    IEnumerator PlayerDeath()
-    {
-        Destroy(gameObject);
-        yield return new WaitForSeconds(5f);
-    }
+    
 
     private void OnTriggerEnter(Collider other)
     {
@@ -49,15 +44,13 @@ public class Target : MonoBehaviour
     {
         if ((gun.isBumped) && (other.gameObject.layer == LayerMask.NameToLayer("Killingzone")))
         {
-            Death(); 
-            StartCoroutine(PlayerDeath());
+            Death();
             SceneManager.LoadScene("SampleScene");
         }
 
         if ((bullet.isBumpedB) && (other.gameObject.layer == LayerMask.NameToLayer("Killingzone")))
         {
             Death();
-            StartCoroutine(PlayerDeath());
             SceneManager.LoadScene("SampleScene");
         }
     }

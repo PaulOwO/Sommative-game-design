@@ -7,31 +7,16 @@ using UnityEngine.SceneManagement;
 
 public class ArenaManager : MonoBehaviour
 {
-    //private float speed = 50f;
     private void Update()
     {
         StartCoroutine(ExecuteAfterTime(1));
     }
-    
-    public IEnumerator PlayerDeath()
-    {
-        Destroy(gameObject);
-        yield return new WaitForSeconds(5f);
-    }
 
+    //Obstacles despawn of the arena after a quite long time
     IEnumerator ExecuteAfterTime(float time)
     {
-        /*yield return new WaitForSeconds(10f);
-
-        if (GameObject.FindWithTag("Obstacles"))
-        {
-            transform.Rotate(Vector3.up * speed * Time.deltaTime);
-        }*/
-        
         yield return new WaitForSeconds(60f);
  
         Destroy(GameObject.FindWithTag("Obstacles"));
     }
-
-   
 }

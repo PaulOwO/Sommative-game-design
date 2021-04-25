@@ -5,27 +5,23 @@ using UnityEngine;
 using InControl;
 
 
-public class gun : MonoBehaviour
+public class Gun : MonoBehaviour
 {
-    public float rangeL = 100f;
-    public float damageL = 10f;
-    public float impactForceL = 30f;
-    public LineRenderer lineRenderer;
-    public bool shootAvailable = true;
-    public bool isBumped;
-    public bool shootLAvailable = true;
-    public bool shootBAvailable = true;
-    public GameObject bulletPrefab;
-    [SerializeField] AudioSource lazerAudio;
-    [SerializeField] AudioSource shootAudio;
-    [SerializeField] AudioSource reloadAudio;
-
+    [SerializeField] private float rangeL = 100f;
+    [SerializeField] private float damageL = 10f;
+    [SerializeField] private float impactForceL = 30f;
+    [SerializeField] private LineRenderer lineRenderer;
+    [SerializeField] private bool shootLAvailable = true;
+    [SerializeField] private bool shootBAvailable = true;
+    [SerializeField] private GameObject bulletPrefab;
+    [SerializeField] private float bulletSpeed = 10f;
+    [SerializeField] private Animator camera;
+    [SerializeField] private AudioSource lazerAudio;
+    [SerializeField] private AudioSource shootAudio;
+    [SerializeField] private AudioSource reloadAudio;
     [SerializeField] private PlayerController playercontroller;
-    private float bulletSpeed = 10f;
-    public Animator camera;
+    public bool isBumped;
 
-    
-    
 
     void Update()
     {
@@ -41,7 +37,6 @@ public class gun : MonoBehaviour
             {
                 ShootL();
                 StartCoroutine(FireRateL());
-                //Debug.Log("Shoot");
             }
         }
 
@@ -53,28 +48,23 @@ public class gun : MonoBehaviour
             {
                 ShootB();
                 StartCoroutine(FireRateB());
-                //Debug.Log("Shoot");
             }
         }
         
         
     }
 
+    //Shoot a straight line bullet which slightly bump if it hits the opponent
     void ShootB()
     {
         shootAudio.Play();
         GameObject bulletInstance = Instantiate(bulletPrefab);
         bulletInstance.transform.position = transform.position;
-        //bulletInstance.transform.position += transform.forward;
-        //Rigidbody body_ = bulletInstance.GetComponent<Rigidbody>();
-        //body_.AddForce(impactForceL, ForceMode.Impulse);
-        //Rigidbody bulletInstance = GetComponent<Rigidbody>();
         Rigidbody body = bulletInstance.GetComponent<Rigidbody>();
         body.AddForce(transform.forward * bulletSpeed, ForceMode.Impulse);
-        //0f, 0f, 1f,
     }
     
-
+    //Shoot a straight line laser which strongly bump if it hits the opponent
     void ShootL()
     {
         lazerAudio.Play();
@@ -109,10 +99,11 @@ public class gun : MonoBehaviour
             lineRenderer.SetPosition(0, transform.position);
             lineRenderer.SetPosition(1, transform.position + transform.forward * rangeL);
         }
-
+        
         StartCoroutine(LineTime());
     }
 
+    //Add a cooldown for the laser shoot
     IEnumerator FireRateL()
     {
         shootLAvailable = false;
@@ -121,6 +112,7 @@ public class gun : MonoBehaviour
         reloadAudio.Play();
     }
 
+    //Add a very short cooldown to avoid spamming the bullet shoot
     IEnumerator FireRateB()
     {
         shootBAvailable = false;
@@ -128,6 +120,7 @@ public class gun : MonoBehaviour
         shootBAvailable = true;
     }
 
+    //The laser animation stay for a few time
     IEnumerator LineTime()
     {
         lineRenderer.enabled = true;
@@ -135,6 +128,7 @@ public class gun : MonoBehaviour
         lineRenderer.enabled = false;
     }
 
+    //Track the bumped state(laser) of the players
     IEnumerator BumpKill()
     {
         isBumped = true;
@@ -142,5 +136,4 @@ public class gun : MonoBehaviour
         yield return new WaitForSeconds(2f);
         isBumped = false;
     }
-    
 }

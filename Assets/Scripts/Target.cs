@@ -6,27 +6,19 @@ using UnityEngine.SceneManagement;
 public class Target : MonoBehaviour
 {
     public float health = 50f;
-    [SerializeField] private gun gun;
+    [SerializeField] private Gun gun;
     [SerializeField] private Bullet bullet;
-    [SerializeField] private ArenaManager arenamanager;
-    [SerializeField] AudioSource deathSound;
-
-
-    /*public void TakeDamage (float amount)
-    {
-        health -= amount;
-        if (health <= 0f)
-        {
-            Die();
-        }
-    }*/
-
-    /*void Die()
-    {
-        Destroy(gameObject);
-    }*/
+    [SerializeField] private AudioSource deathSound;
     
 
+    //Destroy the player gameobject
+    void Death()
+    {
+        Destroy(gameObject);
+        deathSound.Play();
+    }
+    
+    //Kill the player if he got hit by a shoot and bumped into a deathwall
     private void OnTriggerEnter(Collider other)
     {
         if ((gun.isBumped) && (other.gameObject.layer == LayerMask.NameToLayer("Killingzone")))
@@ -34,12 +26,13 @@ public class Target : MonoBehaviour
             Death();
         }
 
-       if ((bullet.isBumpedB) && (other.gameObject.layer == LayerMask.NameToLayer("Killingzone")))
+        if ((bullet.isBumpedB) && (other.gameObject.layer == LayerMask.NameToLayer("Killingzone")))
         {
             Death();
         }
     }
 
+    //Kill the player if he got hit by a shoot when currently colliding with a deathwall
     private void OnTriggerStay(Collider other)
     {
         if ((gun.isBumped) && (other.gameObject.layer == LayerMask.NameToLayer("Killingzone")))
@@ -54,14 +47,4 @@ public class Target : MonoBehaviour
             SceneManager.LoadScene("SampleScene");
         }
     }
-
-    void Death()
-    {
-        Destroy(gameObject);
-        deathSound.Play();
-    }
-
-
-
-
 }

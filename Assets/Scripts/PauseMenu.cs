@@ -6,18 +6,17 @@ using InControl;
 
 public class PauseMenu : MonoBehaviour
 {
-    private bool GameIsPaused = false; 
+    private bool _gameIsPaused = false; 
 
-    [SerializeField] GameObject PauseMenuUI;
+    [SerializeField] private GameObject pauseMenuUi;
     [SerializeField] private PlayerController playercontroller;
-
-    // Update is called once per frame
+    
     void Update()
     {
         var device = InputManager.Devices[playercontroller.index];
         if (device.Command.WasPressed)
         {
-            if (GameIsPaused)
+            if (_gameIsPaused)
             {
                 Resume();
             }
@@ -30,16 +29,16 @@ public class PauseMenu : MonoBehaviour
 
     public void Resume()
     {
-        PauseMenuUI.SetActive(false);
+        pauseMenuUi.SetActive(false);
         Time.timeScale = 1f;
-        GameIsPaused = false;
+        _gameIsPaused = false;
     }
 
     void Pause()
     {
-        PauseMenuUI.SetActive(true);
+        pauseMenuUi.SetActive(true);
         Time.timeScale = 0f;
-        GameIsPaused = true;
+        _gameIsPaused = true;
     }
 
     public void LoadMenu()

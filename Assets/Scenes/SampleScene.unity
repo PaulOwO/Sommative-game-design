@@ -404,6 +404,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 7447666815316106079, guid: 31b131be7860d3f43ae552acccec83a7, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7451839801947558048, guid: 31b131be7860d3f43ae552acccec83a7, type: 3}
       propertyPath: camera
       value: 
@@ -411,7 +415,7 @@ PrefabInstance:
     - target: {fileID: 7451839801947558048, guid: 31b131be7860d3f43ae552acccec83a7, type: 3}
       propertyPath: lazerAudio
       value: 
-      objectReference: {fileID: 1756478489}
+      objectReference: {fileID: 1602164350}
     - target: {fileID: 7451839801947558048, guid: 31b131be7860d3f43ae552acccec83a7, type: 3}
       propertyPath: shootAudio
       value: 
@@ -419,7 +423,7 @@ PrefabInstance:
     - target: {fileID: 7451839801947558048, guid: 31b131be7860d3f43ae552acccec83a7, type: 3}
       propertyPath: reloadAudio
       value: 
-      objectReference: {fileID: 1602164349}
+      objectReference: {fileID: 1602164352}
     - target: {fileID: 7451839801947558048, guid: 31b131be7860d3f43ae552acccec83a7, type: 3}
       propertyPath: lineRenderer
       value: 
@@ -1975,6 +1979,11 @@ AudioSource:
   m_CorrespondingSourceObject: {fileID: 7447666815316106079, guid: 31b131be7860d3f43ae552acccec83a7, type: 3}
   m_PrefabInstance: {fileID: 129085278}
   m_PrefabAsset: {fileID: 0}
+--- !u!82 &1602164350 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 7447666815316106076, guid: 31b131be7860d3f43ae552acccec83a7, type: 3}
+  m_PrefabInstance: {fileID: 129085278}
+  m_PrefabAsset: {fileID: 0}
 --- !u!82 &1602164352
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1986,7 +1995,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 822f42b978f303c48b4d989d1274644a, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -2462,11 +2471,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f786712fd457e04c8f5cc5c7940fbbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!82 &1756478489 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 1756478489, guid: 776b85a7edc60c144833bc8d06eb66bb, type: 3}
-  m_PrefabInstance: {fileID: 218787752}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1827206696
 GameObject:
   m_ObjectHideFlags: 0

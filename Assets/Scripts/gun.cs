@@ -18,6 +18,8 @@ public class gun : MonoBehaviour
     public GameObject bulletPrefab;
     [SerializeField] AudioSource lazerAudio;
     [SerializeField] AudioSource shootAudio;
+    [SerializeField] AudioSource reloadAudio;
+
     [SerializeField] private PlayerController playercontroller;
     private float bulletSpeed = 10f;
     public Animator camera;
@@ -116,6 +118,7 @@ public class gun : MonoBehaviour
         shootLAvailable = false;
         yield return new WaitForSeconds(3.00f);
         shootLAvailable = true;
+        reloadAudio.Play();
     }
 
     IEnumerator FireRateB()

@@ -797,10 +797,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 728ec5f68f81a3b45bc075d8c32b2806, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 50
   gun: {fileID: 0}
   bullet: {fileID: 7081995820506254008, guid: 673c0031fd37cf345a6d98519daecdba, type: 3}
   deathSound: {fileID: 664331829}
+  player2: {fileID: 0}
+  player1: {fileID: 1277449696127882445}
+  endScreenUI: {fileID: 0}
+  p1WinUI: {fileID: 0}
+  p2WinUI: {fileID: 0}
+  restartEnable: 0
+  playercontroller: {fileID: 2469145385622117708}
 --- !u!136 &7111164929621137725
 CapsuleCollider:
   m_ObjectHideFlags: 0

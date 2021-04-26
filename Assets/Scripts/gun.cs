@@ -12,7 +12,6 @@ public class Gun : MonoBehaviour
     [SerializeField] private float impactForceL = 30f;
     [SerializeField] private LineRenderer lineRenderer;
     [SerializeField] private bool shootLAvailable = true;
-    
     [SerializeField] private Animator camera;
     [SerializeField] private AudioSource lazerAudio;
     [SerializeField] private AudioSource reloadAudio;
@@ -35,11 +34,7 @@ public class Gun : MonoBehaviour
                 ShootL();
                 StartCoroutine(FireRateL());
             }
-        }
-
-       
-        
-        
+        } 
     }
 
    

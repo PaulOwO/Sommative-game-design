@@ -5,16 +5,16 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    public bool isBumpedB;
+    public Target targettt;
     
 
     //Track the bumped state(bullet) of the players
     IEnumerator BumpKillB()
     {
-        isBumpedB = true;
+        targettt.isBumpedB = true;
         Debug.Log("IsBumpedB");
         yield return new WaitForSeconds(2f);
-        isBumpedB = false;
+        targettt.isBumpedB = false;
     }
     
     //The Bullet is destroyed if it collides with something else

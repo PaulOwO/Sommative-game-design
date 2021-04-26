@@ -7,7 +7,7 @@ using InControl;
 public class Target : MonoBehaviour
 {
     [SerializeField] private Gun gun;
-    [SerializeField] private Bullet bullet;
+    //[SerializeField] private Bullet bullet;
     [SerializeField] private AudioSource deathSound;
     [SerializeField] private GameObject player2;
     [SerializeField] private GameObject player1;
@@ -16,6 +16,8 @@ public class Target : MonoBehaviour
     [SerializeField] private GameObject p2WinUI;
     [SerializeField] private bool restartEnable = false;
     [SerializeField] private PlayerController playercontroller;
+    public bool isBumpedB = false;
+    
 
 
     void Update()
@@ -69,7 +71,7 @@ public class Target : MonoBehaviour
             }
         }
 
-        if ((bullet.isBumpedB) && (other.gameObject.layer == LayerMask.NameToLayer("Killingzone")))
+        /*if ((bullet.isBumpedB) && (other.gameObject.layer == LayerMask.NameToLayer("Killingzone")))
         {
             if (other == player2)
             {
@@ -80,7 +82,7 @@ public class Target : MonoBehaviour
             {
                 DeathP1();
             }
-        }
+        }*/
     }
 
     //Kill the player if he got hit by a shoot when currently colliding with a deathwall
@@ -92,7 +94,7 @@ public class Target : MonoBehaviour
             SceneManager.LoadScene("SampleScene");
         }*/
 
-        if ((bullet.isBumpedB) && (other.gameObject.layer == LayerMask.NameToLayer("Killingzone")))
+        if ((isBumpedB) && (other.gameObject.layer == LayerMask.NameToLayer("Killingzone")))
         {
             Death();
             SceneManager.LoadScene("SampleScene");

@@ -488,6 +488,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1666752024}
     - target: {fileID: 5363183271445844171, guid: 31b131be7860d3f43ae552acccec83a7, type: 3}
+      propertyPath: isBumpedB
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5363183271445844171, guid: 31b131be7860d3f43ae552acccec83a7, type: 3}
       propertyPath: deathSound
       value: 
       objectReference: {fileID: 664331829}
@@ -557,7 +561,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8566132608037172111, guid: 31b131be7860d3f43ae552acccec83a7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.35
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8566132608037172111, guid: 31b131be7860d3f43ae552acccec83a7, type: 3}
       propertyPath: m_LocalPosition.z
@@ -712,6 +716,10 @@ PrefabInstance:
       propertyPath: player2
       value: 
       objectReference: {fileID: 1987261598}
+    - target: {fileID: 3257992896607483790, guid: 776b85a7edc60c144833bc8d06eb66bb, type: 3}
+      propertyPath: isBumpedB
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3257992896607483790, guid: 776b85a7edc60c144833bc8d06eb66bb, type: 3}
       propertyPath: endScreenUI
       value: 

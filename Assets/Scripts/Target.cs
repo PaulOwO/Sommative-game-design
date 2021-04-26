@@ -60,14 +60,13 @@ public class Target : MonoBehaviour
     {
         if ((gun.isBumped) && (other.gameObject.layer == LayerMask.NameToLayer("Killingzone")))
         {
-            if (other.gameObject == player2)
-            {
-                DeathP2();
-            }
-
-            if (other == player1)
+            if (gameObject == player2)
             {
                 DeathP1();
+            }
+            else
+            {
+                DeathP2();
             }
         }
 
@@ -88,16 +87,19 @@ public class Target : MonoBehaviour
     //Kill the player if he got hit by a shoot when currently colliding with a deathwall
     private void OnTriggerStay(Collider other)
     {
-       /* if ((gun.isBumped) && (other.gameObject.layer == LayerMask.NameToLayer("Killingzone")))
-        {
-            Death();
-            SceneManager.LoadScene("SampleScene");
-        }*/
+        /* if ((gun.isBumped) && (other.gameObject.layer == LayerMask.NameToLayer("Killingzone")))
+         {
+             Death();
+             SceneManager.LoadScene("SampleScene");
+         }*/
 
-        if ((isBumpedB) && (other.gameObject.layer == LayerMask.NameToLayer("Killingzone")))
+        if (gameObject == player2)
         {
-            Death();
-            SceneManager.LoadScene("SampleScene");
+            DeathP1();
+        }
+        else
+        {
+            DeathP2();
         }
     }
 }

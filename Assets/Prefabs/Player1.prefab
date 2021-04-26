@@ -798,7 +798,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gun: {fileID: 0}
-  bullet: {fileID: 7081995820506254008, guid: 673c0031fd37cf345a6d98519daecdba, type: 3}
   deathSound: {fileID: 664331829}
   player2: {fileID: 0}
   player1: {fileID: 1277449696127882445}
@@ -807,6 +806,7 @@ MonoBehaviour:
   p2WinUI: {fileID: 0}
   restartEnable: 0
   playercontroller: {fileID: 2469145385622117708}
+  isBumpedB: 0
 --- !u!136 &7111164929621137725
 CapsuleCollider:
   m_ObjectHideFlags: 0

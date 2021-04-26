@@ -12,12 +12,9 @@ public class Gun : MonoBehaviour
     [SerializeField] private float impactForceL = 30f;
     [SerializeField] private LineRenderer lineRenderer;
     [SerializeField] private bool shootLAvailable = true;
-    [SerializeField] private bool shootBAvailable = true;
-    [SerializeField] private GameObject bulletPrefab;
-    [SerializeField] private float bulletSpeed = 10f;
+    
     [SerializeField] private Animator camera;
     [SerializeField] private AudioSource lazerAudio;
-    [SerializeField] private AudioSource shootAudio;
     [SerializeField] private AudioSource reloadAudio;
     [SerializeField] private PlayerController playercontroller;
     public bool isBumped;
@@ -40,29 +37,12 @@ public class Gun : MonoBehaviour
             }
         }
 
-        if (shootBAvailable)
-        {
-            
-            var device = InputManager.Devices[playercontroller.index];
-            if (device.RightTrigger.IsPressed)
-            {
-                ShootB();
-                StartCoroutine(FireRateB());
-            }
-        }
+       
         
         
     }
 
-    //Shoot a straight line bullet which slightly bump if it hits the opponent
-    void ShootB()
-    {
-        shootAudio.Play();
-        GameObject bulletInstance = Instantiate(bulletPrefab);
-        bulletInstance.transform.position = transform.position;
-        Rigidbody body = bulletInstance.GetComponent<Rigidbody>();
-        body.AddForce(transform.forward * bulletSpeed, ForceMode.Impulse);
-    }
+   
     
     //Shoot a straight line laser which strongly bump if it hits the opponent
     void ShootL()
@@ -112,13 +92,7 @@ public class Gun : MonoBehaviour
         reloadAudio.Play();
     }
 
-    //Add a very short cooldown to avoid spamming the bullet shoot
-    IEnumerator FireRateB()
-    {
-        shootBAvailable = false;
-        yield return new WaitForSeconds(0.25f);
-        shootBAvailable = true;
-    }
+   
 
     //The laser animation stay for a few time
     IEnumerator LineTime()

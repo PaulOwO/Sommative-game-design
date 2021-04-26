@@ -36,7 +36,7 @@ public class Target : MonoBehaviour
     void Death()
     {
         endScreenUI.SetActive(true);
-        Destroy(gameObject);
+       // Destroy(gameObject);
         deathSound.Play();
         restartEnable = true;
     }
@@ -87,19 +87,16 @@ public class Target : MonoBehaviour
     //Kill the player if he got hit by a shoot when currently colliding with a deathwall
     private void OnTriggerStay(Collider other)
     {
-        /* if ((gun.isBumped) && (other.gameObject.layer == LayerMask.NameToLayer("Killingzone")))
-         {
-             Death();
-             SceneManager.LoadScene("SampleScene");
-         }*/
-
-        if (gameObject == player2)
+        if ((gun.isBumped) && (other.gameObject.layer == LayerMask.NameToLayer("Killingzone")))
         {
-            DeathP1();
-        }
-        else
-        {
-            DeathP2();
+            if (gameObject == player2)
+            {
+                DeathP1();
+            }
+            else
+            {
+                DeathP2();
+            }
         }
     }
 }

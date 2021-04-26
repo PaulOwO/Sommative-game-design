@@ -479,6 +479,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 11668565c93a90745a90b55836120af2, type: 2}
+    - target: {fileID: 4980777947135556105, guid: 31b131be7860d3f43ae552acccec83a7, type: 3}
+      propertyPath: index
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5270438532680556629, guid: 31b131be7860d3f43ae552acccec83a7, type: 3}
       propertyPath: m_Layer
       value: 10
@@ -519,6 +523,10 @@ PrefabInstance:
       propertyPath: arenamanager
       value: 
       objectReference: {fileID: 860213284}
+    - target: {fileID: 5363183271445844171, guid: 31b131be7860d3f43ae552acccec83a7, type: 3}
+      propertyPath: restartEnable
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6168472977108524812, guid: 31b131be7860d3f43ae552acccec83a7, type: 3}
       propertyPath: m_Layer
       value: 10
@@ -531,6 +539,10 @@ PrefabInstance:
       propertyPath: camera
       value: 
       objectReference: {fileID: 963194229}
+    - target: {fileID: 7451839801947558048, guid: 31b131be7860d3f43ae552acccec83a7, type: 3}
+      propertyPath: isBumped
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7451839801947558048, guid: 31b131be7860d3f43ae552acccec83a7, type: 3}
       propertyPath: lazerAudio
       value: 
@@ -720,6 +732,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player1
       objectReference: {fileID: 0}
+    - target: {fileID: 2469145385622117708, guid: 776b85a7edc60c144833bc8d06eb66bb, type: 3}
+      propertyPath: index
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3257992896607483790, guid: 776b85a7edc60c144833bc8d06eb66bb, type: 3}
       propertyPath: gun
       value: 
@@ -736,6 +752,10 @@ PrefabInstance:
       propertyPath: player2
       value: 
       objectReference: {fileID: 1987261598}
+    - target: {fileID: 3257992896607483790, guid: 776b85a7edc60c144833bc8d06eb66bb, type: 3}
+      propertyPath: isBumpedB
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3257992896607483790, guid: 776b85a7edc60c144833bc8d06eb66bb, type: 3}
       propertyPath: endScreenUI
       value: 

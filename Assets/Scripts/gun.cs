@@ -16,7 +16,7 @@ public class Gun : MonoBehaviour
     [SerializeField] private AudioSource lazerAudio;
     [SerializeField] private AudioSource reloadAudio;
     [SerializeField] private PlayerController playercontroller;
-    public bool isBumped;
+    public bool isBumped = false;
 
 
     void Update()

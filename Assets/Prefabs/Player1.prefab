@@ -805,7 +805,7 @@ MonoBehaviour:
   endScreenUI: {fileID: 0}
   p1WinUI: {fileID: 0}
   p2WinUI: {fileID: 0}
-  restartEnable: 0
+  gameManager: {fileID: 0}
   deathEnable: 1
   playercontroller: {fileID: 2469145385622117708}
   isBumpedB: 1

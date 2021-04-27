@@ -11,14 +11,12 @@ public class GunBullet : MonoBehaviour
     [SerializeField] private AudioSource shootAudio;
     [SerializeField] private bool shootBAvailable = true;
     [SerializeField] private GameObject bulletPrefab;
-    [SerializeField] private PlayerController playercontroller;
-
-
-
+    [SerializeField] private PlayerController playerController;
+    
 
     void Update()
     {
-        if (InputManager.Devices.Count <= playercontroller.index)
+        if (InputManager.Devices.Count <= playerController.index)
         {
             return;
         }
@@ -26,7 +24,7 @@ public class GunBullet : MonoBehaviour
         if (shootBAvailable)
         {
 
-            var device = InputManager.Devices[playercontroller.index];
+            var device = InputManager.Devices[playerController.index];
             if (device.RightTrigger.IsPressed)
             {
                 ShootB();
@@ -51,14 +49,5 @@ public class GunBullet : MonoBehaviour
         shootBAvailable = false;
         yield return new WaitForSeconds(0.25f);
         shootBAvailable = true;
-    }
-
-    private void OnTriggerStay(Collider bulletInstance)
-    {
-        if (bulletInstance.gameObject.layer == LayerMask.NameToLayer("Player"))
-        {
-            Debug.Log("hit player");
-        }
-
     }
 }

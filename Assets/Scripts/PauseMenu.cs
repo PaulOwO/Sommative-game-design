@@ -9,16 +9,16 @@ public class PauseMenu : MonoBehaviour
     private bool _gameIsPaused = false; 
 
     [SerializeField] private GameObject pauseMenuUi;
-    [SerializeField] private PlayerController playercontroller;
-    
+    [SerializeField] private PlayerController playerController;
+
     void Update()
     {
-        if (InputManager.Devices.Count <= playercontroller.index)
+        if (InputManager.Devices.Count <= playerController.index)
         {
             return;
         }
 
-        var device = InputManager.Devices[playercontroller.index];
+        var device = InputManager.Devices[playerController.index];
         if (device.Command.WasPressed)
         {
             if (_gameIsPaused)

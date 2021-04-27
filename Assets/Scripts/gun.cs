@@ -14,20 +14,20 @@ public class Gun : MonoBehaviour
     [SerializeField] private Animator camera;
     [SerializeField] private AudioSource lazerAudio;
     [SerializeField] private AudioSource reloadAudio;
-    [SerializeField] private PlayerController playercontroller;
+    [SerializeField] private PlayerController playerController;
     public bool isBumped = false;
 
 
     void Update()
     {
-        if (InputManager.Devices.Count <= playercontroller.index)
+        if (InputManager.Devices.Count <= playerController.index)
         {
             return;
         }
 
         if (shootLAvailable)
         {
-            var device = InputManager.Devices[playercontroller.index];
+            var device = InputManager.Devices[playerController.index];
             if (device.RightBumper.IsPressed)
             {
                 ShootL();

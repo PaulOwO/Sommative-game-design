@@ -6,16 +6,7 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     [SerializeField] private GameManager gameManager;
-
-
-    //Track the bumped state(bullet) of the players
-    IEnumerator BumpKillB()
-    {
-        gameManager.isBumpedB = true;
-        Debug.Log("IsBumpedB");
-        yield return new WaitForSeconds(2f);
-        gameManager.isBumpedB = false;
-    }
+    
     
     //The Bullet is destroyed if it collides with something else
     void OnCollisionEnter(Collision collision)
@@ -24,6 +15,12 @@ public class Bullet : MonoBehaviour
         Debug.Log("hit");
         Destroy(gameObject);
     }
+    
+    
+    
+    
+    /*
+                                                    //Unused code//
 
     private void OnTriggerEnter(Collider other)
     {
@@ -33,5 +30,14 @@ public class Bullet : MonoBehaviour
            // StartCoroutine(BumpKillB());
         }
     }
+    
+    //Track the bumped state(bullet) of the players
+    IEnumerator BumpKillB()
+    {
+        gameManager.isBumpedB = true;
+        Debug.Log("IsBumpedB");
+        yield return new WaitForSeconds(2f);
+        gameManager.isBumpedB = false;
+    }*/
 
 }

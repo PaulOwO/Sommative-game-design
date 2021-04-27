@@ -12,6 +12,7 @@ public class GunBullet : MonoBehaviour
     [SerializeField] private bool shootBAvailable = true;
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private PlayerController playercontroller;
+   
 
 
 

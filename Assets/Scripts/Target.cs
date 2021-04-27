@@ -16,17 +16,18 @@ public class Target : MonoBehaviour
     [SerializeField] private GameObject endScreenUI;
     [SerializeField] private GameObject p1WinUI;
     [SerializeField] private GameObject p2WinUI;
-    [SerializeField] private bool restartEnable = false;
+    [SerializeField] private GameManager gameManager;
+    //[SerializeField] private bool restartEnable = false;
     [SerializeField] private bool deathEnable = true;
     [SerializeField] private PlayerController playercontroller;
-    public bool isBumpedB = false;
+    
     
 
 
     void Update()
     {
         
-        if (restartEnable == true)
+        if (gameManager.restartEnable == true)
         {
             var device = InputManager.Devices[playercontroller.index];
             if (device.Action1.WasPressed)
@@ -44,7 +45,7 @@ public class Target : MonoBehaviour
         deathEnable = false;
         endScreenUI.SetActive(true);
         deathSound.Play();
-        restartEnable = true;
+        gameManager.restartEnable = true;
         Destroy(gameObject);
     }
 
@@ -80,7 +81,7 @@ public class Target : MonoBehaviour
             }
         }
 
-        /*if ((bullet.isBumpedB) && (other.gameObject.layer == LayerMask.NameToLayer("Killingzone")))
+        if ((gameManager.isBumpedB) && (other.gameObject.layer == LayerMask.NameToLayer("Killingzone")))
         {
             if (other == player2)
             {
@@ -91,7 +92,7 @@ public class Target : MonoBehaviour
             {
                 DeathP1();
             }
-        }*/
+        }
     }
 
     //Kill the player if he got hit by a shoot when currently colliding with a deathwall
@@ -109,6 +110,19 @@ public class Target : MonoBehaviour
                 {
                     DeathP2();
                 }
+            }
+        }
+
+        if ((gameManager.isBumpedB) && (other.gameObject.layer == LayerMask.NameToLayer("Killingzone")))
+        {
+            if (other == player2)
+            {
+                DeathP2();
+            }
+
+            if (other == player1)
+            {
+                DeathP1();
             }
         }
     }

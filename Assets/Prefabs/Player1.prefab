@@ -61,7 +61,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: cfc762d1e84b88243a48899db49cea44, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -75,7 +75,7 @@ AudioSource:
   rolloffMode: 0
   BypassEffects: 0
   BypassListenerEffects: 0
-  BypassReverbZones: 0
+  BypassReverbZones: 1
   rolloffCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -191,7 +191,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rangeL: 100
-  damageL: 10
   impactForceL: 30
   lineRenderer: {fileID: 0}
   shootLAvailable: 1
@@ -798,15 +797,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gun: {fileID: 0}
-  deathSound: {fileID: 664331829}
+  deathSound: {fileID: 0}
+  vitcoryMusic: {fileID: 0}
+  gameMusic: {fileID: 0}
   player2: {fileID: 0}
   player1: {fileID: 1277449696127882445}
   endScreenUI: {fileID: 0}
   p1WinUI: {fileID: 0}
   p2WinUI: {fileID: 0}
   restartEnable: 0
+  deathEnable: 1
   playercontroller: {fileID: 2469145385622117708}
-  isBumpedB: 0
+  isBumpedB: 1
 --- !u!136 &7111164929621137725
 CapsuleCollider:
   m_ObjectHideFlags: 0

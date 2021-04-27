@@ -9,12 +9,15 @@ public class Target : MonoBehaviour
     [SerializeField] private Gun gun;
     //[SerializeField] private Bullet bullet;
     [SerializeField] private AudioSource deathSound;
+    [SerializeField] private AudioSource vitcoryMusic;
+    [SerializeField] private AudioSource gameMusic;
     [SerializeField] private GameObject player2;
     [SerializeField] private GameObject player1;
     [SerializeField] private GameObject endScreenUI;
     [SerializeField] private GameObject p1WinUI;
     [SerializeField] private GameObject p2WinUI;
     [SerializeField] private bool restartEnable = false;
+    [SerializeField] private bool deathEnable = true;
     [SerializeField] private PlayerController playercontroller;
     public bool isBumpedB = false;
     
@@ -22,7 +25,8 @@ public class Target : MonoBehaviour
 
     void Update()
     {
-        if (restartEnable)
+        
+        if (restartEnable == true)
         {
             var device = InputManager.Devices[playercontroller.index];
             if (device.Action1.WasPressed)
@@ -35,10 +39,13 @@ public class Target : MonoBehaviour
     //Destroy the player gameobject
     void Death()
     {
+        gameMusic.Stop();
+        vitcoryMusic.Play();
+        deathEnable = false;
         endScreenUI.SetActive(true);
         deathSound.Play();
-        Destroy(gameObject);
         restartEnable = true;
+        Destroy(gameObject);
     }
 
     void DeathP2()
@@ -60,13 +67,16 @@ public class Target : MonoBehaviour
     {
         if ((gun.isBumped) && (other.gameObject.layer == LayerMask.NameToLayer("Killingzone")))
         {
-            if (gameObject == player2)
+            if (deathEnable == true)
             {
-                DeathP1();
-            }
-            else
-            {
-                DeathP2();
+                if (gameObject == player2)
+                {
+                    DeathP1();
+                }
+                else
+                {
+                    DeathP2();
+                }
             }
         }
 
@@ -89,13 +99,16 @@ public class Target : MonoBehaviour
     {
         if ((gun.isBumped) && (other.gameObject.layer == LayerMask.NameToLayer("Killingzone")))
         {
-            if (gameObject == player2)
+            if (deathEnable == true)
             {
-                DeathP1();
-            }
-            else
-            {
-                DeathP2();
+                if (gameObject == player2)
+                {
+                    DeathP1();
+                }
+                else
+                {
+                    DeathP2();
+                }
             }
         }
     }

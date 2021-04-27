@@ -531,6 +531,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 7447666813915468683, guid: 31b131be7860d3f43ae552acccec83a7, type: 3}
+      propertyPath: m_Volume
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 7447666815316106079, guid: 31b131be7860d3f43ae552acccec83a7, type: 3}
       propertyPath: m_PlayOnAwake
       value: 0
@@ -676,6 +680,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1010152654, guid: 776b85a7edc60c144833bc8d06eb66bb, type: 3}
+      propertyPath: m_Volume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1010152654, guid: 776b85a7edc60c144833bc8d06eb66bb, type: 3}
+      propertyPath: BypassReverbZones
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 13842109486577637, guid: 776b85a7edc60c144833bc8d06eb66bb, type: 3}
       propertyPath: camera
       value: 

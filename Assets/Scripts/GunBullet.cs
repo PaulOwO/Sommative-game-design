@@ -17,6 +17,11 @@ public class GunBullet : MonoBehaviour
 
     void Update()
     {
+        if (InputManager.Devices.Count <= playercontroller.index)
+        {
+            return;
+        }
+
         if (shootBAvailable)
         {
 

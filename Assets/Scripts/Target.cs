@@ -36,8 +36,8 @@ public class Target : MonoBehaviour
     void Death()
     {
         endScreenUI.SetActive(true);
-       // Destroy(gameObject);
         deathSound.Play();
+        Destroy(gameObject);
         restartEnable = true;
     }
 

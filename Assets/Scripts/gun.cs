@@ -8,7 +8,6 @@ using InControl;
 public class Gun : MonoBehaviour
 {
     [SerializeField] private float rangeL = 100f;
-    [SerializeField] private float damageL = 10f;
     [SerializeField] private float impactForceL = 30f;
     [SerializeField] private LineRenderer lineRenderer;
     [SerializeField] private bool shootLAvailable = true;

@@ -13,6 +13,11 @@ public class PauseMenu : MonoBehaviour
     
     void Update()
     {
+        if (InputManager.Devices.Count <= playercontroller.index)
+        {
+            return;
+        }
+
         var device = InputManager.Devices[playercontroller.index];
         if (device.Command.WasPressed)
         {

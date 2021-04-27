@@ -12,7 +12,7 @@ public class GunBullet : MonoBehaviour
     [SerializeField] private bool shootBAvailable = true;
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private PlayerController playercontroller;
-   
+
 
 
 
@@ -51,5 +51,14 @@ public class GunBullet : MonoBehaviour
         shootBAvailable = false;
         yield return new WaitForSeconds(0.25f);
         shootBAvailable = true;
+    }
+
+    private void OnTriggerStay(Collider bulletInstance)
+    {
+        if (bulletInstance.gameObject.layer == LayerMask.NameToLayer("Player"))
+        {
+            Debug.Log("hit player");
+        }
+
     }
 }

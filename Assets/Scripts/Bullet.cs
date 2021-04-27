@@ -29,7 +29,8 @@ public class Bullet : MonoBehaviour
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
-            StartCoroutine(BumpKillB());
+           // other.transform.isBumpedB = true;
+           // StartCoroutine(BumpKillB());
         }
     }
 

@@ -7,7 +7,6 @@ using InControl;
 public class Target : MonoBehaviour
 {
     [SerializeField] private Gun gun;
-    //[SerializeField] private Bullet bullet;
     [SerializeField] private AudioSource deathSound;
     [SerializeField] private AudioSource vitcoryMusic;
     [SerializeField] private AudioSource gameMusic;
@@ -17,11 +16,12 @@ public class Target : MonoBehaviour
     [SerializeField] private GameObject p1WinUI;
     [SerializeField] private GameObject p2WinUI;
     [SerializeField] private GameManager gameManager;
-    //[SerializeField] private bool restartEnable = false;
     [SerializeField] private bool deathEnable = true;
     [SerializeField] private PlayerController playercontroller;
+    [SerializeField] public bool isBumpedB = true;
     
-    
+
+
 
 
     void Update()
@@ -81,16 +81,18 @@ public class Target : MonoBehaviour
             }
         }
 
-        if ((gameManager.isBumpedB) && (other.gameObject.layer == LayerMask.NameToLayer("Killingzone")))
+        if ((gun.isBumped) && (other.gameObject.layer == LayerMask.NameToLayer("Killingzone")))
         {
-            if (other == player2)
+            if (deathEnable == true)
             {
-                DeathP2();
-            }
-
-            if (other == player1)
-            {
-                DeathP1();
+                if (gameObject == player2)
+                {
+                    DeathP1();
+                }
+                else
+                {
+                    DeathP2();
+                }
             }
         }
     }
@@ -113,16 +115,18 @@ public class Target : MonoBehaviour
             }
         }
 
-        if ((gameManager.isBumpedB) && (other.gameObject.layer == LayerMask.NameToLayer("Killingzone")))
+        if ((isBumpedB) && (other.gameObject.layer == LayerMask.NameToLayer("Killingzone")))
         {
-            if (other == player2)
+            if (deathEnable == true)
             {
-                DeathP2();
-            }
-
-            if (other == player1)
-            {
-                DeathP1();
+                if (gameObject == player2)
+                {
+                    DeathP1();
+                }
+                else
+                {
+                    DeathP2();
+                }
             }
         }
     }
